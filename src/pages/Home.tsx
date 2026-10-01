@@ -37,7 +37,7 @@ export default function Home() {
       </section>
 
       <section className="mx-4 mt-6 bg-stone-900 p-5 text-datil-50">
-        <p className="text-xs uppercase tracking-[0.2em] text-datil-200">SoataGo Pass</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-datil-200">Soata <span className="text-dinero-light">GoPass</span></p>
         <p className="mt-2 font-serif text-2xl leading-snug">Experiencias incluidas y descuentos en comercios de Soatá.</p>
         <Link to="/pass" className="mt-4 inline-block text-sm font-medium text-sky-300">
           Ver planes

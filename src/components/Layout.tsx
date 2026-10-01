@@ -7,7 +7,7 @@ const NAV = [
   { to: '/explorar', label: 'Explorar', icon: Compass },
   { to: '/rutas', label: 'Rutas', icon: RouteIcon },
   { to: '/mapa', label: 'Mapa', icon: Map },
-  { to: '/pass', label: 'Pass', icon: Ticket },
+  { to: '/pass', label: 'GoPass', icon: Ticket },
 ]
 
 export default function Layout() {
