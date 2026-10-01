@@ -13,7 +13,7 @@ export default function About() {
       </p>
       <section>
         <h2 className="border-b border-stone-900 pb-2 font-serif text-xl font-semibold text-stone-900">Créditos de fotos</h2>
-        <p className="mt-1 text-xs text-stone-500">Fotografías de Wikimedia Commons bajo licencias Creative Commons. Mapa y ubicaciones: © colaboradores de OpenStreetMap.</p>
+        <p className="mt-1 text-xs text-stone-500">Fotografías de Wikimedia Commons bajo licencias Creative Commons. Mapa: Google Maps. Ubicaciones: © colaboradores de OpenStreetMap.</p>
         <ul className="mt-2 space-y-1 text-xs">
           {PHOTO_CREDITS.map((c) => (
             <li key={c.file}>
