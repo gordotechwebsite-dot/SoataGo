@@ -40,7 +40,7 @@ function Markers({ places }: { places: Place[] }) {
           <div className="max-w-[14rem] font-sans">
             <p className="font-serif text-base font-semibold text-stone-900">{selected.name}</p>
             <p className="mt-0.5 text-xs text-stone-600">{selected.short}</p>
-            <Link to={`/lugar/${selected.id}`} className="mt-1 inline-block text-sm font-medium text-datil-700 underline">Ver detalle</Link>
+            <Link to={`/lugar/${selected.id}`} className="mt-1 inline-block text-sm font-medium text-sky-600">Ver detalle</Link>
           </div>
         </InfoWindow>
       )}
