@@ -18,7 +18,7 @@ const PLANS: Plan[] = [
     name: 'Pass Libre',
     price: 'Gratis',
     tagline: 'Para descubrir Soatá a tu ritmo.',
-    features: ['Guía completa de lugares y comida', 'Rutas sugeridas', 'Mapa interactivo', 'Experiencias gratuitas'],
+    features: ['Guía completa de lugares y comida', 'Planes sugeridos', 'Mapa interactivo', 'Experiencias gratuitas'],
   },
   {
     id: 'datil',

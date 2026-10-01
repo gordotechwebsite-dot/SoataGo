@@ -6,7 +6,7 @@ import PriceBadge from '../components/PriceBadge'
 export default function RouteDetail() {
   const { id = '' } = useParams()
   const route = getRoute(id)
-  if (!route) return <p className="p-6 text-center text-stone-600">Ruta no encontrada.</p>
+  if (!route) return <p className="p-6 text-center text-stone-600">Plan no encontrado.</p>
 
   return (
     <div>

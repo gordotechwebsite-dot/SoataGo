@@ -46,7 +46,7 @@ export default function Home() {
 
       <section className="px-4 pt-8">
         <div className="mb-3 flex items-baseline justify-between border-b border-stone-900 pb-2">
-          <h2 className="font-serif text-2xl font-semibold text-stone-900">Rutas sugeridas</h2>
+          <h2 className="font-serif text-2xl font-semibold text-stone-900">Planes sugeridos</h2>
           <Link to="/rutas" className="text-sm text-sky-600">Ver todas</Link>
         </div>
         <div className="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-2">
