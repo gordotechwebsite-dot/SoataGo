@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+body { @apply bg-datil-50 text-stone-800 antialiased; }
+.leaflet-container { font: inherit; }
