@@ -13,7 +13,7 @@ export default function PlaceDetail() {
     return (
       <div className="p-6 text-center">
         <p className="text-stone-600">No encontramos este lugar.</p>
-        <Link to="/explorar" className="mt-3 inline-block font-medium text-datil-600">Volver a explorar</Link>
+        <Link to="/explorar" className="mt-3 inline-block font-medium text-sky-600">Volver a explorar</Link>
       </div>
     )
   }
@@ -57,7 +57,7 @@ export default function PlaceDetail() {
 
         {place.passBenefit && (
           <Link to="/pass" className="mt-5 block border-l-4 border-datil-700 bg-white py-3 pl-4 pr-3 text-stone-900">
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-datil-700">Con SoataGo Pass</p>
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-datil-700">Con Soata <span className="text-dinero">GoPass</span></p>
             <p className="mt-1 text-sm">{place.passBenefit}</p>
           </Link>
         )}

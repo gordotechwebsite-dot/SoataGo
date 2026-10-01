@@ -5,9 +5,9 @@ import { Compass, Home, Map, Route as RouteIcon, Ticket } from 'lucide-react'
 const NAV = [
   { to: '/', label: 'Inicio', icon: Home, end: true },
   { to: '/explorar', label: 'Explorar', icon: Compass },
-  { to: '/rutas', label: 'Rutas', icon: RouteIcon },
+  { to: '/rutas', label: 'Planes', icon: RouteIcon },
   { to: '/mapa', label: 'Mapa', icon: Map },
-  { to: '/pass', label: 'Pass', icon: Ticket },
+  { to: '/pass', label: 'GoPass', icon: Ticket },
 ]
 
 export default function Layout() {
@@ -20,7 +20,7 @@ export default function Layout() {
         <Link to="/" className="font-serif text-2xl font-semibold leading-none text-stone-900">
           SoataGo
         </Link>
-        <Link to="/acerca" className="text-sm text-stone-600 underline-offset-4 hover:underline">
+        <Link to="/acerca" className="text-sm text-sky-600">
           Acerca de
         </Link>
       </header>

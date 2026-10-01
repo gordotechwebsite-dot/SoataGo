@@ -4,7 +4,7 @@ import { ROUTES } from '../data/routes'
 export default function RoutesList() {
   return (
     <div className="px-4 py-5">
-      <h1 className="font-serif text-3xl font-semibold text-stone-900">Rutas sugeridas</h1>
+      <h1 className="font-serif text-3xl font-semibold text-stone-900">Planes sugeridos</h1>
       <p className="mt-1 text-sm text-stone-600">Itinerarios con horario, parada por parada.</p>
       <div className="mt-5 flex flex-col">
         {ROUTES.map((r) => (
@@ -13,7 +13,7 @@ export default function RoutesList() {
             <p className="mt-3 text-[11px] uppercase tracking-wider text-stone-500">
               {r.duration} · {r.days.reduce((n, d) => n + d.stops.length, 0)} paradas
             </p>
-            <h2 className="font-serif text-2xl font-semibold text-stone-900 group-hover:underline">{r.name}</h2>
+            <h2 className="font-serif text-2xl font-semibold text-stone-900">{r.name}</h2>
             <p className="mt-1 text-sm text-stone-600">{r.summary}</p>
           </Link>
         ))}

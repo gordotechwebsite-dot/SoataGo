@@ -35,7 +35,7 @@ export const SOATA_CENTER: [number, number] = [6.3351, -72.6806]
 export const PLACES: Place[] = [
   {
     id: 'cocatedral',
-    name: 'Cocatedral de la Inmaculada Concepción',
+    name: 'Catedral de la Inmaculada Concepción',
     category: 'cultura',
     price: 'gratis',
     short: 'El templo principal frente al Parque Simón Bolívar.',
@@ -54,7 +54,7 @@ export const PLACES: Place[] = [
     price: 'gratis',
     short: 'La plaza principal, rodeada de palmas y arquitectura colonial.',
     description:
-      'El centro de la vida soatense. Aquí estan la Cocatedral, la Alcaldía y varios cafés. De noche se ilumina y en diciembre es el escenario del Carnaval de la Alegría.',
+      'El centro de la vida soatense. Aquí estan la Catedral, la Alcaldía y varios cafés. De noche se ilumina y en diciembre es el escenario del Carnaval de la Alegría.',
     image: '/img/parque-principal.jpg',
     lat: 6.33515,
     lng: -72.68067,
@@ -191,7 +191,7 @@ export const PLACES: Place[] = [
     lat: 6.33193,
     lng: -72.68074,
     duration: 'Medio día',
-    passBenefit: 'Descuento en la entrada con SoataGo Pass (por confirmar con el aliado).',
+    passBenefit: 'Descuento en la entrada con Soata GoPass (por confirmar con el aliado).',
     pendingVerification: true,
   },
   {
@@ -208,7 +208,7 @@ export const PLACES: Place[] = [
     lng: -72.6805,
     approx: true,
     duration: '2 h',
-    passBenefit: 'Incluida en el SoataGo Pass Dátil.',
+    passBenefit: 'Incluida en el Soata GoPass Dátil.',
     pendingVerification: true,
   },
   {
@@ -225,7 +225,7 @@ export const PLACES: Place[] = [
     lng: -72.6865,
     approx: true,
     duration: '3 h',
-    passBenefit: 'Incluida en el SoataGo Pass Dátil.',
+    passBenefit: 'Incluida en el Soata GoPass Dátil.',
     pendingVerification: true,
   },
   {
@@ -242,7 +242,7 @@ export const PLACES: Place[] = [
     lng: -72.69,
     approx: true,
     duration: 'Medio día',
-    passBenefit: '15% de descuento con SoataGo Pass.',
+    passBenefit: '15% de descuento con Soata GoPass.',
     pendingVerification: true,
   },
   {
@@ -252,7 +252,7 @@ export const PLACES: Place[] = [
     price: 'gratis',
     short: 'Autoguiado: templos, parques y casas coloniales.',
     description:
-      'Sigue la ruta en el mapa: Cocatedral, Parque Simón Bolívar, Capilla de la Piedra, Parque Juan José Rondón y Parroquia del Carmen. Soatá fue fundada en 1545 y su nombre en muysccubun significa "labranza del sol".',
+      'Sigue la ruta en el mapa: Catedral, Parque Simón Bolívar, Capilla de la Piedra, Parque Juan José Rondón y Parroquia del Carmen. Soatá fue fundada en 1545 y su nombre en muysccubun significa "labranza del sol".',
     image: '/img/presentacion.jpg',
     lat: 6.33515,
     lng: -72.68067,
@@ -322,7 +322,7 @@ export const PLACES: Place[] = [
     category: 'hospedaje',
     price: 'pago',
     short: 'A pasos del parque principal.',
-    description: 'Hotel ubicado en el centro, cerca de la Cocatedral y del terminal de transporte.',
+    description: 'Hotel ubicado en el centro, cerca de la Catedral y del terminal de transporte.',
     lat: 6.33555,
     lng: -72.68052,
     pendingVerification: true,

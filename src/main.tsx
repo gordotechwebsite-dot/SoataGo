@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
-import 'leaflet/dist/leaflet.css'
 import '@fontsource/spectral/500.css'
 import '@fontsource/spectral/600.css'
 import '@fontsource/spectral/500-italic.css'

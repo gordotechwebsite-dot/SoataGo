@@ -18,7 +18,7 @@ const PLANS: Plan[] = [
     name: 'Pass Libre',
     price: 'Gratis',
     tagline: 'Para descubrir Soatá a tu ritmo.',
-    features: ['Guía completa de lugares y comida', 'Rutas sugeridas', 'Mapa interactivo', 'Experiencias gratuitas'],
+    features: ['Guía completa de lugares y comida', 'Planes sugeridos', 'Mapa interactivo', 'Experiencias gratuitas'],
   },
   {
     id: 'datil',
@@ -70,7 +70,7 @@ export default function Pass() {
 
   return (
     <div className="px-4 py-5">
-      <h1 className="font-serif text-3xl font-semibold text-stone-900">SoataGo Pass</h1>
+      <h1 className="font-serif text-3xl font-semibold text-stone-900">Soata <span className="text-dinero">GoPass</span></h1>
       <p className="mt-1 text-sm text-stone-600">Experiencias incluidas y descuentos en comercios de Soatá.</p>
 
       {pass ? (

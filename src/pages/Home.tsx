@@ -27,29 +27,27 @@ export default function Home() {
       <section className="mx-4 mt-6 grid grid-cols-2 border-l border-t border-stone-300">
         {QUICK.map(({ cat, title }) => {
           const Icon = CATEGORIES[cat].icon
-          const count = PLACES.filter((p) => p.category === cat).length
           return (
             <Link key={cat} to={`/explorar?categoria=${cat}`} className="flex items-center gap-3 border-b border-r border-stone-300 p-3 hover:bg-white">
               <Icon className="h-5 w-5 shrink-0 text-datil-700" strokeWidth={1.5} />
               <span className="flex-1 font-medium text-stone-900">{title}</span>
-              <span className="text-xs text-stone-500">{count}</span>
             </Link>
           )
         })}
       </section>
 
       <section className="mx-4 mt-6 bg-stone-900 p-5 text-datil-50">
-        <p className="text-xs uppercase tracking-[0.2em] text-datil-200">SoataGo Pass</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-datil-200">Soata <span className="text-dinero-light">GoPass</span></p>
         <p className="mt-2 font-serif text-2xl leading-snug">Experiencias incluidas y descuentos en comercios de Soatá.</p>
-        <Link to="/pass" className="mt-4 inline-block border-b border-datil-200 pb-0.5 text-sm font-medium">
+        <Link to="/pass" className="mt-4 inline-block text-sm font-medium text-sky-300">
           Ver planes
         </Link>
       </section>
 
       <section className="px-4 pt-8">
         <div className="mb-3 flex items-baseline justify-between border-b border-stone-900 pb-2">
-          <h2 className="font-serif text-2xl font-semibold text-stone-900">Rutas sugeridas</h2>
-          <Link to="/rutas" className="text-sm text-stone-600 underline underline-offset-4">Ver todas</Link>
+          <h2 className="font-serif text-2xl font-semibold text-stone-900">Planes sugeridos</h2>
+          <Link to="/rutas" className="text-sm text-sky-600">Ver todas</Link>
         </div>
         <div className="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-2">
           {ROUTES.map((r) => (
@@ -65,11 +63,13 @@ export default function Home() {
       <section className="px-4 pt-8">
         <div className="flex items-baseline justify-between border-b border-stone-900 pb-2">
           <h2 className="font-serif text-2xl font-semibold text-stone-900">Imperdibles</h2>
-          <Link to="/explorar" className="text-sm text-stone-600 underline underline-offset-4">Explorar todo</Link>
+          <Link to="/explorar" className="text-sm text-sky-600">Explorar todo</Link>
         </div>
-        {featured.map((p) => (
-          <PlaceCard key={p.id} place={p} />
-        ))}
+        <div className="grid grid-cols-2 gap-x-3 gap-y-6 pt-4 sm:grid-cols-3">
+          {featured.map((p) => (
+            <PlaceCard key={p.id} place={p} />
+          ))}
+        </div>
       </section>
 
       <section className="px-4 pt-8 text-sm text-stone-700">
