@@ -191,7 +191,7 @@ export const PLACES: Place[] = [
     lat: 6.33193,
     lng: -72.68074,
     duration: 'Medio día',
-    passBenefit: 'Descuento en la entrada con SoataGo Pass (por confirmar con el aliado).',
+    passBenefit: 'Descuento en la entrada con Soata GoPass (por confirmar con el aliado).',
     pendingVerification: true,
   },
   {
@@ -208,7 +208,7 @@ export const PLACES: Place[] = [
     lng: -72.6805,
     approx: true,
     duration: '2 h',
-    passBenefit: 'Incluida en el SoataGo Pass Dátil.',
+    passBenefit: 'Incluida en el Soata GoPass Dátil.',
     pendingVerification: true,
   },
   {
@@ -225,7 +225,7 @@ export const PLACES: Place[] = [
     lng: -72.6865,
     approx: true,
     duration: '3 h',
-    passBenefit: 'Incluida en el SoataGo Pass Dátil.',
+    passBenefit: 'Incluida en el Soata GoPass Dátil.',
     pendingVerification: true,
   },
   {
@@ -242,7 +242,7 @@ export const PLACES: Place[] = [
     lng: -72.69,
     approx: true,
     duration: 'Medio día',
-    passBenefit: '15% de descuento con SoataGo Pass.',
+    passBenefit: '15% de descuento con Soata GoPass.',
     pendingVerification: true,
   },
   {

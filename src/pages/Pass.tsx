@@ -70,7 +70,7 @@ export default function Pass() {
 
   return (
     <div className="px-4 py-5">
-      <h1 className="font-serif text-3xl font-semibold text-stone-900">SoataGo Pass</h1>
+      <h1 className="font-serif text-3xl font-semibold text-stone-900">Soata <span className="text-dinero">GoPass</span></h1>
       <p className="mt-1 text-sm text-stone-600">Experiencias incluidas y descuentos en comercios de Soatá.</p>
 
       {pass ? (
