@@ -26,7 +26,7 @@ export const ROUTES: TourRoute[] = [
         title: 'Día 1',
         stops: [
           { time: '8:00', title: 'Desayuno boyacense', note: 'Arranca con un buen desayuno en algún café del parque principal.' },
-          { time: '9:00', placeId: 'cocatedral', title: 'Cocatedral de la Inmaculada Concepción', note: 'Inicio del recorrido histórico.' },
+          { time: '9:00', placeId: 'cocatedral', title: 'Catedral de la Inmaculada Concepción', note: 'Inicio del recorrido histórico.' },
           { time: '9:30', placeId: 'tour-centro', title: 'Recorrido histórico a pie', note: 'Parques, capillas y casas coloniales.' },
           { time: '11:30', placeId: 'ruta-datil', title: 'Ruta del Dátil', note: 'Conoce las palmas y prueba los dulces.' },
           { time: '13:00', placeId: 'pescaderia-dorado', title: 'Almuerzo', note: 'Comida típica cerca del centro.' },
