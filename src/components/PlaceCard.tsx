@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { Clock } from 'lucide-react'
 import { CATEGORIES, type Place } from '../data/places'
 import PriceBadge from './PriceBadge'
 
@@ -7,31 +6,25 @@ export function PlaceImage({ place, className = '' }: { place: Place; className?
   if (place.image) return <img src={place.image} alt={place.name} loading="lazy" className={`object-cover ${className}`} />
   const Icon = CATEGORIES[place.category].icon
   return (
-    <div className={`flex items-center justify-center bg-gradient-to-br from-datil-200 to-palma-100 text-datil-600 ${className}`}>
-      <Icon className="h-10 w-10" />
+    <div className={`flex items-center justify-center bg-datil-100 text-datil-700 ${className}`}>
+      <Icon className="h-8 w-8" strokeWidth={1.5} />
     </div>
   )
 }
 
 export default function PlaceCard({ place }: { place: Place }) {
   return (
-    <Link
-      to={`/lugar/${place.id}`}
-      className="group flex overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-datil-100 transition hover:shadow-md"
-    >
-      <PlaceImage place={place} className="h-28 w-28 shrink-0 sm:h-32 sm:w-36" />
-      <div className="flex min-w-0 flex-1 flex-col gap-1 p-3">
-        <div className="flex items-center gap-2">
+    <Link to={`/lugar/${place.id}`} className="group flex gap-4 border-b border-stone-300 py-4">
+      <PlaceImage place={place} className="h-24 w-24 shrink-0 sm:h-28 sm:w-32" />
+      <div className="flex min-w-0 flex-1 flex-col">
+        <p className="flex items-center gap-2 text-[11px] uppercase tracking-wider text-stone-500">
+          <span className="truncate">{CATEGORIES[place.category].label}</span>
+          <span aria-hidden>/</span>
           <PriceBadge price={place.price} />
-          <span className="truncate text-xs text-stone-500">{CATEGORIES[place.category].label}</span>
-        </div>
-        <h3 className="line-clamp-2 font-semibold leading-tight text-stone-900 group-hover:text-datil-700">{place.name}</h3>
-        <p className="line-clamp-2 text-sm text-stone-600">{place.short}</p>
-        {place.duration && (
-          <span className="mt-auto flex items-center gap-1 text-xs text-stone-500">
-            <Clock className="h-3.5 w-3.5" /> {place.duration}
-          </span>
-        )}
+        </p>
+        <h3 className="mt-1 line-clamp-2 font-serif text-lg font-semibold leading-snug text-stone-900 group-hover:underline">{place.name}</h3>
+        <p className="mt-0.5 line-clamp-2 text-sm text-stone-600">{place.short}</p>
+        {place.duration && <p className="mt-auto pt-1 text-xs text-stone-500">{place.duration}</p>}
       </div>
     </Link>
   )

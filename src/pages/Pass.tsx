@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { QRCodeSVG } from 'qrcode.react'
-import { Check, Info } from 'lucide-react'
 import { PLACES } from '../data/places'
 
 interface Plan {
@@ -70,20 +69,24 @@ export default function Pass() {
   }
 
   return (
-    <div className="px-4 py-4">
-      <h1 className="text-2xl font-bold text-stone-900">SoataGo Pass</h1>
-      <p className="mt-1 text-sm text-stone-600">Un solo pase para las mejores experiencias de Soatá, con beneficios en comercios aliados.</p>
+    <div className="px-4 py-5">
+      <h1 className="font-serif text-3xl font-semibold text-stone-900">SoataGo Pass</h1>
+      <p className="mt-1 text-sm text-stone-600">Experiencias incluidas y descuentos en comercios de Soatá.</p>
 
       {pass ? (
-        <section className="mt-5 overflow-hidden rounded-3xl bg-gradient-to-br from-datil-600 to-datil-900 p-5 text-white shadow-lg">
-          <p className="text-xs uppercase tracking-widest text-datil-200">{PLANS.find((p) => p.id === pass.plan)?.name}</p>
-          <p className="mt-1 text-2xl font-extrabold">{pass.name}</p>
-          <div className="mt-4 flex justify-center rounded-2xl bg-white p-4">
-            <QRCodeSVG value={`soatago:${pass.code}`} size={180} fgColor="#3f2112" />
+        <section className="mt-5 border border-stone-900 bg-white">
+          <div className="p-5">
+            <p className="text-[11px] uppercase tracking-[0.2em] text-datil-700">{PLANS.find((p) => p.id === pass.plan)?.name}</p>
+            <p className="mt-1 font-serif text-3xl font-semibold text-stone-900">{pass.name}</p>
           </div>
-          <p className="mt-3 text-center font-mono text-lg tracking-widest">{pass.code}</p>
-          <p className="mt-1 text-center text-xs text-datil-100">Muestra este código en los comercios aliados.</p>
-          <button onClick={reset} className="mt-4 w-full rounded-xl bg-white/15 py-2 text-sm">Quitar pase de este dispositivo</button>
+          <div className="border-t border-dashed border-stone-400 p-5">
+            <div className="flex justify-center">
+              <QRCodeSVG value={`soatago:${pass.code}`} size={180} fgColor="#1c1917" />
+            </div>
+            <p className="mt-3 text-center font-mono text-lg tracking-widest text-stone-900">{pass.code}</p>
+            <p className="mt-1 text-center text-xs text-stone-500">Muestra este código en los comercios aliados.</p>
+          </div>
+          <button onClick={reset} className="w-full border-t border-stone-300 py-3 text-sm text-stone-600">Quitar pase de este dispositivo</button>
         </section>
       ) : (
         <>
@@ -91,51 +94,44 @@ export default function Pass() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Tu nombre"
-            className="mt-4 w-full rounded-2xl bg-white px-4 py-3 outline-none ring-1 ring-datil-100 focus:ring-datil-400"
+            className="mt-5 w-full border-b border-stone-900 bg-transparent py-2 outline-none placeholder:text-stone-400"
           />
-          <div className="mt-4 flex flex-col gap-4">
+          <div className="mt-5 flex flex-col gap-4">
             {PLANS.map((plan) => (
-              <div
-                key={plan.id}
-                className={`rounded-3xl p-5 ring-1 ${plan.highlight ? 'bg-white ring-2 ring-datil-500 shadow-md' : 'bg-white ring-datil-100'}`}
-              >
-                {plan.highlight && (
-                  <span className="rounded-full bg-datil-500 px-2 py-0.5 text-xs font-semibold text-white">Recomendado</span>
-                )}
-                <div className="mt-2 flex items-baseline justify-between">
-                  <h2 className="text-xl font-bold text-stone-900">{plan.name}</h2>
-                  <p className="text-lg font-extrabold text-datil-700">{plan.price}</p>
+              <div key={plan.id} className={`bg-white p-5 ${plan.highlight ? 'border-2 border-stone-900' : 'border border-stone-300'}`}>
+                {plan.highlight && <p className="text-[11px] font-semibold uppercase tracking-wider text-datil-700">El más completo</p>}
+                <div className="mt-1 flex items-baseline justify-between gap-3">
+                  <h2 className="font-serif text-2xl font-semibold text-stone-900">{plan.name}</h2>
+                  <p className="font-semibold text-stone-900">{plan.price}</p>
                 </div>
                 <p className="text-sm text-stone-600">{plan.tagline}</p>
-                <ul className="mt-3 space-y-1.5">
+                <ul className="mt-3 divide-y divide-stone-200 border-y border-stone-200 text-sm text-stone-700">
                   {plan.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-stone-700">
-                      <Check className="h-4 w-4 text-palma-600" /> {f}
-                    </li>
+                    <li key={f} className="py-1.5">{f}</li>
                   ))}
                 </ul>
                 <button
                   onClick={() => activate(plan.id)}
-                  className={`mt-4 w-full rounded-2xl py-3 font-semibold ${plan.highlight ? 'bg-datil-600 text-white' : 'bg-datil-100 text-datil-800'}`}
+                  className={`mt-4 w-full py-3 font-medium ${plan.highlight ? 'bg-stone-900 text-datil-50' : 'border border-stone-900 text-stone-900'}`}
                 >
                   {plan.price === 'Gratis' ? 'Activar gratis' : 'Obtener pase (demo)'}
                 </button>
               </div>
             ))}
           </div>
-          <p className="mt-3 flex items-start gap-2 text-xs text-stone-500">
-            <Info className="h-4 w-4 shrink-0" /> Versión de demostración: todavía no se procesan pagos. Precios y beneficios de referencia.
+          <p className="mt-3 text-xs italic text-stone-500">
+            Versión de demostración: todavía no se procesan pagos. Precios y beneficios de referencia.
           </p>
         </>
       )}
 
-      <section className="mt-6">
-        <h2 className="text-lg font-bold text-stone-900">Beneficios del Pass</h2>
-        <ul className="mt-2 divide-y divide-datil-100 rounded-2xl bg-white ring-1 ring-datil-100">
+      <section className="mt-8">
+        <h2 className="border-b border-stone-900 pb-2 font-serif text-xl font-semibold text-stone-900">Beneficios del Pass</h2>
+        <ul className="divide-y divide-stone-300">
           {benefits.map((p) => (
             <li key={p.id}>
-              <Link to={`/lugar/${p.id}`} className="block p-3">
-                <p className="font-semibold text-stone-900">{p.name}</p>
+              <Link to={`/lugar/${p.id}`} className="block py-3">
+                <p className="font-medium text-stone-900">{p.name}</p>
                 <p className="text-sm text-datil-700">{p.passBenefit}</p>
               </Link>
             </li>
