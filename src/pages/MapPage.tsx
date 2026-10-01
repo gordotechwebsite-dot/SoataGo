@@ -1,25 +1,52 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
-import L from 'leaflet'
+import { APIProvider, InfoWindow, Map as GoogleMap, Marker } from '@vis.gl/react-google-maps'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { CATEGORIES, PLACES, SOATA_CENTER, type Category } from '../data/places'
+import { CATEGORIES, PLACES, SOATA_CENTER, type Category, type Place } from '../data/places'
 
-const markerIcons = Object.fromEntries(
+const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined
+
+const markerUrls = Object.fromEntries(
   (Object.keys(CATEGORIES) as Category[]).map((c) => {
     const Icon = CATEGORIES[c].icon
-    const svg = renderToStaticMarkup(<Icon size={16} color="#fdf6ef" strokeWidth={1.75} />)
-    return [
-      c,
-      L.divIcon({
-        className: '',
-        html: `<div style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:#83421f;border:1.5px solid #fdf6ef">${svg}</div>`,
-        iconSize: [28, 28],
-        iconAnchor: [14, 14],
-      }),
-    ]
+    const icon = renderToStaticMarkup(<Icon size={16} x={6} y={6} color="#fdf6ef" strokeWidth={1.75} />)
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"><rect x="0.75" y="0.75" width="26.5" height="26.5" fill="#83421f" stroke="#fdf6ef" stroke-width="1.5"/>${icon}</svg>`
+    return [c, `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`]
   }),
-) as Record<Category, L.DivIcon>
+) as Record<Category, string>
+
+const MAP_STYLES: google.maps.MapTypeStyle[] = [
+  { featureType: 'poi.business', stylers: [{ visibility: 'off' }] },
+  { featureType: 'transit', stylers: [{ visibility: 'off' }] },
+]
+
+function Markers({ places }: { places: Place[] }) {
+  const [selected, setSelected] = useState<Place | null>(null)
+  const anchor = new google.maps.Point(14, 14)
+
+  return (
+    <>
+      {places.map((p) => (
+        <Marker
+          key={p.id}
+          position={{ lat: p.lat, lng: p.lng }}
+          title={p.name}
+          icon={{ url: markerUrls[p.category], anchor }}
+          onClick={() => setSelected(p)}
+        />
+      ))}
+      {selected && places.includes(selected) && (
+        <InfoWindow position={{ lat: selected.lat, lng: selected.lng }} pixelOffset={[0, -14]} onCloseClick={() => setSelected(null)}>
+          <div className="max-w-[14rem] font-sans">
+            <p className="font-serif text-base font-semibold text-stone-900">{selected.name}</p>
+            <p className="mt-0.5 text-xs text-stone-600">{selected.short}</p>
+            <Link to={`/lugar/${selected.id}`} className="mt-1 inline-block text-sm font-medium text-datil-700 underline">Ver detalle</Link>
+          </div>
+        </InfoWindow>
+      )}
+    </>
+  )
+}
 
 export default function MapPage() {
   const [category, setCategory] = useState<Category | null>(null)
@@ -44,21 +71,24 @@ export default function MapPage() {
           </button>
         ))}
       </div>
-      <MapContainer center={SOATA_CENTER} zoom={15} className="flex-1">
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {places.map((p) => (
-          <Marker key={p.id} position={[p.lat, p.lng]} icon={markerIcons[p.category]}>
-            <Popup>
-              <p className="font-serif text-base font-semibold">{p.name}</p>
-              <p className="text-xs text-stone-500">{p.short}</p>
-              <Link to={`/lugar/${p.id}`} className="text-sm font-medium text-datil-700 underline">Ver detalle</Link>
-            </Popup>
-          </Marker>
-        ))}
-      </MapContainer>
+      {API_KEY ? (
+        <APIProvider apiKey={API_KEY} language="es" region="CO">
+          <GoogleMap
+            className="flex-1"
+            defaultCenter={{ lat: SOATA_CENTER[0], lng: SOATA_CENTER[1] }}
+            defaultZoom={15}
+            gestureHandling="greedy"
+            mapTypeControl={false}
+            streetViewControl={false}
+            fullscreenControl={false}
+            styles={MAP_STYLES}
+          >
+            <Markers places={places} />
+          </GoogleMap>
+        </APIProvider>
+      ) : (
+        <p className="p-6 text-center text-sm text-stone-500">El mapa no está disponible en este momento.</p>
+      )}
     </div>
   )
 }

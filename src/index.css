@@ -4,6 +4,6 @@
 
 html, body, #root { height: 100%; }
 body { @apply bg-datil-50 text-stone-800 antialiased; }
-.leaflet-container { font: inherit; }
-.leaflet-popup-content-wrapper, .leaflet-popup-tip { border-radius: 0; box-shadow: none; border: 1px solid #292524; }
-.leaflet-bar, .leaflet-bar a, .leaflet-bar a:first-child, .leaflet-bar a:last-child { border-radius: 0; box-shadow: none; }
+.gm-style .gm-style-iw-c { border-radius: 0; box-shadow: none; border: 1px solid #292524; padding: 12px !important; }
+.gm-style .gm-style-iw-d { overflow: auto !important; }
+.gm-style .gm-style-iw-tc::after { background: #292524; }
