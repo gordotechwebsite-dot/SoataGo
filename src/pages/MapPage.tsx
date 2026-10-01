@@ -8,14 +8,14 @@ import { CATEGORIES, PLACES, SOATA_CENTER, type Category } from '../data/places'
 const markerIcons = Object.fromEntries(
   (Object.keys(CATEGORIES) as Category[]).map((c) => {
     const Icon = CATEGORIES[c].icon
-    const svg = renderToStaticMarkup(<Icon size={18} color="#a65724" />)
+    const svg = renderToStaticMarkup(<Icon size={16} color="#fdf6ef" strokeWidth={1.75} />)
     return [
       c,
       L.divIcon({
         className: '',
-        html: `<div style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:#fff;border:2px solid #a65724;border-radius:9999px;box-shadow:0 1px 4px rgba(0,0,0,.3)">${svg}</div>`,
-        iconSize: [34, 34],
-        iconAnchor: [17, 17],
+        html: `<div style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:#83421f;border:1.5px solid #fdf6ef">${svg}</div>`,
+        iconSize: [28, 28],
+        iconAnchor: [14, 14],
       }),
     ]
   }),
@@ -30,7 +30,7 @@ export default function MapPage() {
       <div className="flex gap-2 overflow-x-auto px-4 py-2">
         <button
           onClick={() => setCategory(null)}
-          className={`shrink-0 rounded-full px-3 py-1 text-sm ring-1 ${!category ? 'bg-datil-600 text-white ring-datil-600' : 'bg-white ring-datil-100'}`}
+          className={`shrink-0 border px-3 py-1 text-sm ${!category ? 'border-stone-900 bg-stone-900 text-datil-50' : 'border-stone-300 text-stone-700'}`}
         >
           Todo
         </button>
@@ -38,7 +38,7 @@ export default function MapPage() {
           <button
             key={c}
             onClick={() => setCategory(c)}
-            className={`shrink-0 rounded-full px-3 py-1 text-sm ring-1 ${category === c ? 'bg-datil-600 text-white ring-datil-600' : 'bg-white ring-datil-100'}`}
+            className={`shrink-0 border px-3 py-1 text-sm ${category === c ? 'border-stone-900 bg-stone-900 text-datil-50' : 'border-stone-300 text-stone-700'}`}
           >
             {CATEGORIES[c].label}
           </button>
@@ -52,9 +52,9 @@ export default function MapPage() {
         {places.map((p) => (
           <Marker key={p.id} position={[p.lat, p.lng]} icon={markerIcons[p.category]}>
             <Popup>
-              <p className="font-semibold">{p.name}</p>
+              <p className="font-serif text-base font-semibold">{p.name}</p>
               <p className="text-xs text-stone-500">{p.short}</p>
-              <Link to={`/lugar/${p.id}`} className="text-sm font-semibold text-datil-600">Ver detalle</Link>
+              <Link to={`/lugar/${p.id}`} className="text-sm font-medium text-datil-700 underline">Ver detalle</Link>
             </Popup>
           </Marker>
         ))}

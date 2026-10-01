@@ -1,4 +1,4 @@
-import { BedDouble, Church, Mountain, Sparkles, TreePalm, UtensilsCrossed, type LucideIcon } from 'lucide-react'
+import { BedDouble, Binoculars, Church, Mountain, TreePalm, UtensilsCrossed, type LucideIcon } from 'lucide-react'
 
 export type Category = 'cultura' | 'naturaleza' | 'parques' | 'gastronomia' | 'experiencias' | 'hospedaje'
 export type Price = 'gratis' | 'pago'
@@ -26,7 +26,7 @@ export const CATEGORIES: Record<Category, { label: string; icon: LucideIcon }> =
   naturaleza: { label: 'Naturaleza', icon: Mountain },
   parques: { label: 'Parques', icon: TreePalm },
   gastronomia: { label: 'Qué comer', icon: UtensilsCrossed },
-  experiencias: { label: 'Experiencias', icon: Sparkles },
+  experiencias: { label: 'Experiencias', icon: Binoculars },
   hospedaje: { label: 'Dónde dormir', icon: BedDouble },
 }
 

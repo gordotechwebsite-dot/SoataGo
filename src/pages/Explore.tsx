@@ -5,9 +5,7 @@ import { CATEGORIES, PLACES, type Category, type Price } from '../data/places'
 import PlaceCard from '../components/PlaceCard'
 
 const chip = (active: boolean) =>
-  `shrink-0 rounded-full px-3 py-1.5 text-sm font-medium ring-1 transition ${
-    active ? 'bg-datil-600 text-white ring-datil-600' : 'bg-white text-stone-600 ring-datil-100'
-  }`
+  `shrink-0 border px-3 py-1.5 text-sm ${active ? 'border-stone-900 bg-stone-900 text-datil-50' : 'border-stone-300 text-stone-700'}`
 
 export default function Explore() {
   const [params, setParams] = useSearchParams()
@@ -33,10 +31,10 @@ export default function Explore() {
   }, [category, price, query])
 
   return (
-    <div className="px-4 py-4">
-      <h1 className="text-2xl font-bold text-stone-900">Explorar Soatá</h1>
-      <label className="mt-3 flex items-center gap-2 rounded-2xl bg-white px-3 py-2.5 ring-1 ring-datil-100 focus-within:ring-datil-400">
-        <Search className="h-5 w-5 text-stone-400" />
+    <div className="px-4 py-5">
+      <h1 className="font-serif text-3xl font-semibold text-stone-900">Explorar Soatá</h1>
+      <label className="mt-4 flex items-center gap-2 border-b border-stone-900 py-2">
+        <Search className="h-5 w-5 text-stone-500" strokeWidth={1.5} />
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
@@ -45,16 +43,13 @@ export default function Explore() {
         />
       </label>
 
-      <div className="-mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1">
+      <div className="-mx-4 mt-4 flex gap-2 overflow-x-auto px-4 pb-1">
         <button className={chip(!category)} onClick={() => update('categoria', null)}>Todo</button>
-        {(Object.keys(CATEGORIES) as Category[]).map((c) => {
-          const Icon = CATEGORIES[c].icon
-          return (
-            <button key={c} className={`${chip(category === c)} flex items-center gap-1.5`} onClick={() => update('categoria', category === c ? null : c)}>
-              <Icon className="h-4 w-4" /> {CATEGORIES[c].label}
-            </button>
-          )
-        })}
+        {(Object.keys(CATEGORIES) as Category[]).map((c) => (
+          <button key={c} className={chip(category === c)} onClick={() => update('categoria', category === c ? null : c)}>
+            {CATEGORIES[c].label}
+          </button>
+        ))}
       </div>
       <div className="mt-2 flex gap-2">
         <button className={chip(!price)} onClick={() => update('precio', null)}>Todos los precios</button>
@@ -62,8 +57,8 @@ export default function Explore() {
         <button className={chip(price === 'pago')} onClick={() => update('precio', price === 'pago' ? null : 'pago')}>De pago</button>
       </div>
 
-      <p className="mt-4 text-sm text-stone-500">{results.length} resultados</p>
-      <div className="mt-2 flex flex-col gap-3">
+      <p className="mt-5 border-b border-stone-900 pb-2 text-sm text-stone-500">{results.length} resultados</p>
+      <div>
         {results.map((p) => (
           <PlaceCard key={p.id} place={p} />
         ))}

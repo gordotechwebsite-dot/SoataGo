@@ -16,32 +16,29 @@ export default function Layout() {
 
   return (
     <div className="mx-auto flex min-h-full max-w-3xl flex-col bg-datil-50">
-      <header className="sticky top-0 z-[1000] flex items-center justify-between border-b border-datil-100 bg-datil-50/90 px-4 py-3 backdrop-blur">
-        <Link to="/" className="flex items-center gap-2">
-          <img src="/icon.svg" alt="" className="h-8 w-8" />
-          <span className="text-lg font-extrabold tracking-tight text-datil-700">
-            Soata<span className="text-palma-600">Go</span>
-          </span>
+      <header className="sticky top-0 z-[1000] flex items-baseline justify-between border-b border-stone-300 bg-datil-50 px-4 py-3">
+        <Link to="/" className="font-serif text-2xl font-semibold leading-none text-stone-900">
+          SoataGo
         </Link>
-        <Link to="/acerca" className="text-sm font-medium text-stone-500 hover:text-datil-600">
+        <Link to="/acerca" className="text-sm text-stone-600 underline-offset-4 hover:underline">
           Acerca de
         </Link>
       </header>
       <main className="flex-1 pb-24">
         <Outlet />
       </main>
-      <nav className="fixed inset-x-0 bottom-0 z-[1000] border-t border-datil-100 bg-white/95 pb-[env(safe-area-inset-bottom)] backdrop-blur">
-        <ul className="mx-auto flex max-w-3xl justify-around">
+      <nav className="fixed inset-x-0 bottom-0 z-[1000] border-t border-stone-300 bg-datil-50 pb-[env(safe-area-inset-bottom)]">
+        <ul className="mx-auto flex max-w-3xl">
           {NAV.map(({ to, label, icon: Icon, end }) => (
-            <li key={to}>
+            <li key={to} className="flex-1">
               <NavLink
                 to={to}
                 end={end}
                 className={({ isActive }) =>
-                  `flex flex-col items-center gap-0.5 px-3 py-2 text-xs font-medium ${isActive ? 'text-datil-600' : 'text-stone-400'}`
+                  `-mt-px flex flex-col items-center gap-1 border-t-2 py-2 text-[11px] ${isActive ? 'border-datil-700 font-semibold text-datil-700' : 'border-transparent text-stone-500'}`
                 }
               >
-                <Icon className="h-5 w-5" />
+                <Icon className="h-5 w-5" strokeWidth={1.5} />
                 {label}
               </NavLink>
             </li>
