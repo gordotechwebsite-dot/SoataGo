@@ -27,12 +27,10 @@ export default function Home() {
       <section className="mx-4 mt-6 grid grid-cols-2 border-l border-t border-stone-300">
         {QUICK.map(({ cat, title }) => {
           const Icon = CATEGORIES[cat].icon
-          const count = PLACES.filter((p) => p.category === cat).length
           return (
             <Link key={cat} to={`/explorar?categoria=${cat}`} className="flex items-center gap-3 border-b border-r border-stone-300 p-3 hover:bg-white">
               <Icon className="h-5 w-5 shrink-0 text-datil-700" strokeWidth={1.5} />
               <span className="flex-1 font-medium text-stone-900">{title}</span>
-              <span className="text-xs text-stone-500">{count}</span>
             </Link>
           )
         })}
