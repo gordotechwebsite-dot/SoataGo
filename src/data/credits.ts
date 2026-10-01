@@ -1,0 +1,17 @@
+export const PHOTO_CREDITS = [
+  { file: '/img/ave.jpg', author: "Félix Uribe from Rionegro, Antioquia, Colombia", license: 'CC BY-SA 2.0', source: 'https://commons.wikimedia.org/wiki/File:Setophaga_pitiayumi,_Soat%C3%A1,_Boyac%C3%A1,_Colombia_1.jpg' },
+  { file: '/img/cabras.jpg', author: "Ricardo8912", license: 'CC BY-SA 4.0', source: 'https://commons.wikimedia.org/wiki/File:Explotaci%C3%B3n_caprina_vereda_Los_Molinos.jpg' },
+  { file: '/img/canon.jpg', author: "Ricardo8912", license: 'CC BY-SA 4.0', source: 'https://commons.wikimedia.org/wiki/File:Ca%C3%B1%C3%B3n_del_R%C3%ADo_Chicamocha_en_Soat%C3%A1.jpg' },
+  { file: '/img/canon2.jpg', author: "0MAMT0", license: 'CC BY-SA 4.0', source: 'https://commons.wikimedia.org/wiki/File:Paisaje_Ca%C3%B1%C3%B3n_del_r%C3%ADo_Chicamocha_en_Soat%C3%A1.jpg' },
+  { file: '/img/capilla-piedra.jpg', author: "Ricardo8912", license: 'CC BY-SA 4.0', source: 'https://commons.wikimedia.org/wiki/File:Capilla_de_la_Virgen_de_la_Piedra.jpg' },
+  { file: '/img/catedral.jpg', author: "Ricardo8912", license: 'CC BY-SA 4.0', source: 'https://commons.wikimedia.org/wiki/File:Catedral_de_Soat%C3%A1_(Sim%C3%B3n_Bolivar).jpg' },
+  { file: '/img/festividades.jpg', author: "0MAMT0", license: 'CC BY-SA 4.0', source: 'https://commons.wikimedia.org/wiki/File:Festividades_de_Soat%C3%A1.jpg' },
+  { file: '/img/hatillo.jpg', author: "Ricardo8912", license: 'CC BY-SA 4.0', source: 'https://commons.wikimedia.org/wiki/File:Vista_de_Soat%C3%A1_desde_la_vereda_El_Hatillo.jpg' },
+  { file: '/img/iglesia.jpg', author: "Idaligomezmartinez", license: 'CC BY-SA 3.0', source: 'https://commons.wikimedia.org/wiki/File:Iglesia_de_Soata.JPG' },
+  { file: '/img/nocturna.jpg', author: "Ricardo3789", license: 'CC BY-SA 3.0', source: 'https://commons.wikimedia.org/wiki/File:Vista_nocturna_del_centro_de_Soat%C3%A1_2014-06-20_18-10.jpg' },
+  { file: '/img/panoramica.jpg', author: "Ricardo3789", license: 'CC BY-SA 4.0', source: 'https://commons.wikimedia.org/wiki/File:Soat%C3%A1_Panor%C3%A1mica.jpeg' },
+  { file: '/img/parque-principal.jpg', author: "Ricardo3789", license: 'CC BY-SA 3.0', source: 'https://commons.wikimedia.org/wiki/File:Parque_Principal_del_Municipio_de_Soat%C3%A1.jpg' },
+  { file: '/img/parque-rondon.jpg', author: "Ricardo8912", license: 'CC BY-SA 4.0', source: 'https://commons.wikimedia.org/wiki/File:Soat%C3%A1,_parque_Juan_Jos%C3%A9_Rond%C3%B3n.jpg' },
+  { file: '/img/presentacion.jpg', author: "Ldpc1", license: 'CC BY-SA 4.0', source: 'https://commons.wikimedia.org/wiki/File:La_Presentaci%C3%B3n_Soat%C3%A1.jpg' },
+  { file: '/img/vista-panoramica.jpg', author: "0MAMT0", license: 'CC BY-SA 4.0', source: 'https://commons.wikimedia.org/wiki/File:Vista_panor%C3%A1mica_de_Soat%C3%A1.jpg' },
+]
