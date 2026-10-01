@@ -20,7 +20,7 @@ export default function Layout() {
         <Link to="/" className="font-serif text-2xl font-semibold leading-none text-stone-900">
           SoataGo
         </Link>
-        <Link to="/acerca" className="text-sm text-stone-600">
+        <Link to="/acerca" className="text-sm text-sky-600">
           Acerca de
         </Link>
       </header>

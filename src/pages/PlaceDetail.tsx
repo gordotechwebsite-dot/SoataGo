@@ -13,7 +13,7 @@ export default function PlaceDetail() {
     return (
       <div className="p-6 text-center">
         <p className="text-stone-600">No encontramos este lugar.</p>
-        <Link to="/explorar" className="mt-3 inline-block font-medium text-datil-600">Volver a explorar</Link>
+        <Link to="/explorar" className="mt-3 inline-block font-medium text-sky-600">Volver a explorar</Link>
       </div>
     )
   }
