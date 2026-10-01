@@ -27,7 +27,7 @@ export default function RouteDetail() {
                   <div className="grid grid-cols-[3.75rem_1fr] gap-3 border-b border-stone-300 py-3">
                     <p className="pt-0.5 text-sm font-semibold tabular-nums text-datil-700">{stop.time}</p>
                     <div>
-                      <p className={`font-medium text-stone-900 ${place ? 'underline decoration-stone-300 underline-offset-4' : ''}`}>{stop.title}</p>
+                      <p className="font-medium text-stone-900">{stop.title}</p>
                       <p className="mt-0.5 text-sm text-stone-600">{stop.note}</p>
                       {place && <div className="mt-1"><PriceBadge price={place.price} /></div>}
                     </div>
