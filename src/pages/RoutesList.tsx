@@ -4,7 +4,7 @@ import { ROUTES } from '../data/routes'
 export default function RoutesList() {
   return (
     <div className="px-4 py-5">
-      <h1 className="font-serif text-3xl font-semibold text-stone-900">Rutas sugeridas</h1>
+      <h1 className="font-serif text-3xl font-semibold text-stone-900">Planes sugeridos</h1>
       <p className="mt-1 text-sm text-stone-600">Itinerarios con horario, parada por parada.</p>
       <div className="mt-5 flex flex-col">
         {ROUTES.map((r) => (

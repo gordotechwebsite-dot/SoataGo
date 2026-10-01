@@ -5,7 +5,7 @@ import { Compass, Home, Map, Route as RouteIcon, Ticket } from 'lucide-react'
 const NAV = [
   { to: '/', label: 'Inicio', icon: Home, end: true },
   { to: '/explorar', label: 'Explorar', icon: Compass },
-  { to: '/rutas', label: 'Rutas', icon: RouteIcon },
+  { to: '/rutas', label: 'Planes', icon: RouteIcon },
   { to: '/mapa', label: 'Mapa', icon: Map },
   { to: '/pass', label: 'GoPass', icon: Ticket },
 ]
