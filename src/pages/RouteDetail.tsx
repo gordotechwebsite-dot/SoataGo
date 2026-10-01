@@ -24,7 +24,7 @@ export default function RouteDetail() {
               {day.stops.map((stop) => {
                 const place = stop.placeId ? getPlace(stop.placeId) : undefined
                 const body = (
-                  <div className="grid grid-cols-[3.75rem_1fr] gap-3 border-b border-stone-300 py-3">
+                  <div className="grid grid-cols-[5.25rem_1fr] gap-3 border-b border-stone-300 py-3">
                     <p className="pt-0.5 text-sm font-semibold tabular-nums text-datil-700">{stop.time}</p>
                     <div>
                       <p className={`font-medium ${place ? 'text-sky-600' : 'text-stone-900'}`}>{stop.title}</p>
