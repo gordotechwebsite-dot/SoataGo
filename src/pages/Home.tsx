@@ -67,9 +67,11 @@ export default function Home() {
           <h2 className="font-serif text-2xl font-semibold text-stone-900">Imperdibles</h2>
           <Link to="/explorar" className="text-sm text-stone-600 underline underline-offset-4">Explorar todo</Link>
         </div>
-        {featured.map((p) => (
-          <PlaceCard key={p.id} place={p} />
-        ))}
+        <div className="grid grid-cols-2 gap-x-3 gap-y-6 pt-4 sm:grid-cols-3">
+          {featured.map((p) => (
+            <PlaceCard key={p.id} place={p} />
+          ))}
+        </div>
       </section>
 
       <section className="px-4 pt-8 text-sm text-stone-700">

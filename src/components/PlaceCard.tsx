@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { CATEGORIES, type Place } from '../data/places'
-import PriceBadge from './PriceBadge'
 
 export function PlaceImage({ place, className = '' }: { place: Place; className?: string }) {
   if (place.image) return <img src={place.image} alt={place.name} loading="lazy" className={`object-cover ${className}`} />
@@ -13,19 +12,20 @@ export function PlaceImage({ place, className = '' }: { place: Place; className?
 }
 
 export default function PlaceCard({ place }: { place: Place }) {
+  const meta = [CATEGORIES[place.category].label, place.duration].filter(Boolean).join(' · ')
   return (
-    <Link to={`/lugar/${place.id}`} className="group flex gap-4 border-b border-stone-300 py-4">
-      <PlaceImage place={place} className="h-24 w-24 shrink-0 sm:h-28 sm:w-32" />
-      <div className="flex min-w-0 flex-1 flex-col">
-        <p className="flex items-center gap-2 text-[11px] uppercase tracking-wider text-stone-500">
-          <span className="truncate">{CATEGORIES[place.category].label}</span>
-          <span aria-hidden>/</span>
-          <PriceBadge price={place.price} />
-        </p>
-        <h3 className="mt-1 line-clamp-2 font-serif text-lg font-semibold leading-snug text-stone-900 group-hover:underline">{place.name}</h3>
-        <p className="mt-0.5 line-clamp-2 text-sm text-stone-600">{place.short}</p>
-        {place.duration && <p className="mt-auto pt-1 text-xs text-stone-500">{place.duration}</p>}
+    <Link to={`/lugar/${place.id}`} className="group block">
+      <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-datil-100">
+        <PlaceImage place={place} className="h-full w-full transition-transform duration-300 group-hover:scale-105" />
+        {place.passBenefit && (
+          <span className="absolute left-2 top-2 rounded-md bg-white px-2 py-1 text-[11px] font-semibold text-stone-900">Con Pass</span>
+        )}
       </div>
+      <h3 className="mt-2 line-clamp-2 text-[15px] font-semibold leading-snug text-stone-900">{place.name}</h3>
+      <p className="mt-0.5 truncate text-sm text-stone-500">{meta}</p>
+      <p className="mt-0.5 text-sm text-stone-900">
+        {place.price === 'gratis' ? <span className="font-semibold">Gratis</span> : place.priceLabel ?? 'De pago'}
+      </p>
     </Link>
   )
 }

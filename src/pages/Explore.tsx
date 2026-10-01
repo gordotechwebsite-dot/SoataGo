@@ -58,12 +58,12 @@ export default function Explore() {
       </div>
 
       <p className="mt-5 border-b border-stone-900 pb-2 text-sm text-stone-500">{results.length} resultados</p>
-      <div>
+      <div className="grid grid-cols-2 gap-x-3 gap-y-6 pt-4 sm:grid-cols-3">
         {results.map((p) => (
           <PlaceCard key={p.id} place={p} />
         ))}
-        {results.length === 0 && <p className="py-10 text-center text-stone-500">No encontramos resultados con esos filtros.</p>}
       </div>
+      {results.length === 0 && <p className="py-10 text-center text-stone-500">No encontramos resultados con esos filtros.</p>}
     </div>
   )
 }
